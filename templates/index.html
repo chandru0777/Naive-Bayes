@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Spam Detector</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h1 class="text-center text-primary mb-4">📧 Email Spam Detector</h1>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Enter Email Message</label>
+                <textarea name="message" class="form-control" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Check</button>
+        </form>
+        {% if prediction %}
+            <div class="alert mt-4 {% if prediction == 'spam' %}alert-danger{% else %}alert-success{% endif %}">
+                Prediction: <strong>{{ prediction }}</strong>
+            </div>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
